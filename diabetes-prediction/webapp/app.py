@@ -19,19 +19,12 @@ def predict():
 
 
 # #print(predicted)
-    if predicted_class==0:
-     print("...drizzle...")
+if predicted_class==0:
+      return render_template("index.html", prediction_text = "Your diabetes status {}".format(predicted_class) + "You Dont have Diabetes")
     elif predicted_class==1:
-     print("...foggy...")
-    elif predicted_class==2: 
-      print("...Rainy...")
-    elif predicted_class==3: 
-      print("...Snowy...")
-    elif predicted_class==4: 
-     print("...Sunny...")
-    else:
-     print("...Class out of Range...")
-    return render_template("index.html", prediction_text = "Your diabetes status {}".format(predicted_class))
+      return render_template("index.html", prediction_text = "Your diabetes status {}".format(predicted_class) + "You have  Diabetes")
+    else: 
+      return render_template("index.html", prediction_text = "Error")
 
 if __name__ == "__main__":
     flask_app.run(debug=True)
